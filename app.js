@@ -75,9 +75,10 @@ app.post('/api/persons', (request, response, next) => {
 		number: request.body.number,
 	})
     
-	entry.save().then(savedEntry => {
-		response.json(savedEntry)
-	}) 
+	entry.save()
+		.then(savedEntry => {
+			response.status(201).json(savedEntry)
+		}) 
 		.catch(error => next(error))
 })
 

@@ -41,7 +41,7 @@ const PersonForm = ({ addPerson, nameValue, numberValue, eventName, eventNumber 
 	)
 }
 
-const Numbers = ({ persons, deletePerson }) => {
+export const Numbers = ({ persons, deletePerson }) => {
 	return (
 		<div>
 			<h3>Numbers</h3>

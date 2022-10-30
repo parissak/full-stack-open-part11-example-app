@@ -2,7 +2,9 @@ const logger = require('./logger')
 
 const mongoose = require('mongoose')
 
-const url = process.env.MONGODB_URI
+const url = process.env.NODE_ENV === 'test' 
+	? process.env.TEST_MONGODB_URI
+	: process.env.MONGODB_URI
 
 logger.log('connecting to', url)
 
