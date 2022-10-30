@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = {globals
 	'env': {
 		'browser': true,
 		'commonjs': true,
@@ -10,6 +10,9 @@ module.exports = {
 		'eslint:recommended', 
 		'plugin:react/recommended'
 	],
+	'globals': {
+		'cy': true
+	},
 	'overrides': [
 	],
 	'parserOptions': {
