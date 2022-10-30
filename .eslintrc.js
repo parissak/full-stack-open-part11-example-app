@@ -1,4 +1,4 @@
-module.exports = {globals
+module.exports = {
 	'env': {
 		'browser': true,
 		'commonjs': true,

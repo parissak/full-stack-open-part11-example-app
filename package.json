@@ -7,7 +7,7 @@
 		"start": "webpack-dev-server --open --mode development",
 		"start-prod": "node index.js",
 		"start-test": "NODE_ENV=test node index.js",
-		"test": "NODE_ENV=test jest --forceExit",
+		"test": "NODE_ENV=test jest --forceExit --runInBand",
 		"eslint": "eslint './**/*.{js,jsx}'",
 		"build": "webpack --mode production",
 		"test:e2e": "cypress open"

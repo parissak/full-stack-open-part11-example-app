@@ -18,10 +18,11 @@ const initialData = [
 
 beforeEach(async () => {  
 	await Entry.deleteMany({})  
-	let noteObject = new Entry(initialData[0])  
-	await noteObject.save()  
-	noteObject = new Entry(initialData[1])  
-	await noteObject.save()
+
+	const entryObjects = initialData
+		.map(entry => new Entry(entry))
+	const promiseArray = entryObjects.map(entry => entry.save())
+	await Promise.all(promiseArray)
 })
 
 test('persons are returned as json', async () => {
@@ -29,12 +30,12 @@ test('persons are returned as json', async () => {
 		.get('/api/persons')
 		.expect(200)
 		.expect('Content-Type', /application\/json/)
-})
+}, 100000)
 
 test('initially there are two notes', async () => {
 	const response = await api.get('/api/persons')
 	expect(response.body).toHaveLength(initialData.length)
-})
+}, 100000)
 
 test('a new entry can be added', async () => {
 	const newEntry = {
@@ -53,7 +54,7 @@ test('a new entry can be added', async () => {
 
 	expect(response.body).toHaveLength(initialData.length + 1)
 	expect(contents).toContain('New Name')
-})
+}, 100000)
 
 afterAll(() => {
 	mongoose.connection.close()
