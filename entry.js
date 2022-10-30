@@ -1,15 +1,17 @@
+const logger = require('./logger')
+
 const mongoose = require('mongoose')
 
 const url = process.env.MONGODB_URI
 
-console.log('connecting to', url)
+logger.log('connecting to', url)
 
 mongoose.connect(url)
 	.then(() => {
-		console.log('connected to MongoDB')
+		logger.log('connected to MongoDB')
 	})
 	.catch((error) => {
-		console.log('error connecting to MongoDB:', error.message)
+		logger.log('error connecting to MongoDB:', error.message)
 	})
 
 const entryValidator = function(val) {
