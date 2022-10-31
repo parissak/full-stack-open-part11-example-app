@@ -13,7 +13,7 @@ mongoose.connect(url)
 		logger.log('connected to MongoDB')
 	})
 	.catch((error) => {
-		logger.log('error connecting to MongoDB:', error.message)
+		console.log('error connecting to MongoDB:', error.message)
 	})
 
 const entryValidator = function(val) {
