@@ -6,7 +6,7 @@ const url = process.env.NODE_ENV === 'test'
 	? process.env.TEST_MONGODB_URI
 	: process.env.MONGODB_URI
 
-logger.log('connecting to', url)
+logger.log('Connecting to', url)
 
 mongoose.connect(url)
 	.then(() => {
